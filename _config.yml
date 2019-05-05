@@ -231,6 +231,9 @@ collections:
   projects:
     output: true
     permalink: /:collection/:path/
+  litupdate:
+    output: true
+    permalink: /:collection/:path/
 
 # Defaults
 defaults:
@@ -272,6 +275,15 @@ defaults:
   - scope:
       path: ""
       type: projects
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _litupdate
+  - scope:
+      path: ""
+      type: litupdate
     values:
       layout: single
       author_profile: true
