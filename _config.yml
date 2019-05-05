@@ -9,25 +9,25 @@
 #
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
-
-# theme                  : "minimal-mistakes-jekyll"
-# remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+github: [metadata]
+theme                    : "minimal-mistakes-jekyll"
+remote_theme             : "mmistakes/minimal-mistakes"
+minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "Garrick W. Bruening M.S."
 title_separator          : "-"
-name                     : "Your Name"
-description              : "An amazing website."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+name                     : &name "Garrick Bruening"
+description              : &description "Doctoral Student at CU Boulder."
+url                      : https://gbruening.github.io/minimal-mistakes/ # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+baseurl                  : "" # the subpath of your site, e.g. "/blog"
+repository               : "GBruening.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
-words_per_minute         : 200
+# words_per_minute         : 200
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
@@ -88,7 +88,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : # Open Graph/Twitter default site image
+og_image                 : /images/headerimage.jpg # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -106,30 +106,36 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
-  email            :
-  links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      # url: mailto:your.name@email.com
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+  name             : "Garrick Bruening M.S."
+  avatar           : "/images/dog_on_chair.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "Doctoral Student at CU Boulder in the Neuromechanics Lab. Outdoor enthusiast. Climbing, Skiing, Backpacking."
+  location         : "Boulder, Colorado"
+  email            : 'Garrick.Bruening@colorado.edu'
+  github           : "GBruening"
+  twitter          : "@garebearbru"
+  linkedin         : 'garrickbruening'
+
+  # links:
+  #   - label: "Email"
+  #     icon: "fas fa-fw fa-envelope-square"
+  #     url: mailto:Garrick.Bruening@colorado.edu
+  #   - label: "Website"
+  #     icon: "fas fa-fw fa-link"
+  #     # url: "https://your-website.com"
+  #   - label: "Twitter"
+  #     icon: "@garebearbru"
+  #     url: "https://twitter.com/garebearbru"
+  #   # - label: "Facebook"
+  #   #   icon: "fab fa-fw fa-facebook-square"
+  #     # url: "https://facebook.com/"
+  #   - label: "GitHub"
+  #     icon: "GBruening"
+  #     url: "https://github.com/GBruening"
+  #   - label: "LinkedIn"
+  #     icon: ""
+  #   # - label: "Instagram"
+  #   #   icon: "fab fa-fw fa-instagram"
+  #     # url: "https://instagram.com/"
 
 # Site Footer
 footer:
@@ -158,6 +164,7 @@ footer:
 include:
   - .htaccess
   - _pages
+  - files
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -210,6 +217,66 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
+# Collections
+collections:
+  teaching:
+    output: true
+    permalink: /:collection/:path/
+  publications:
+    output: true
+    permalink: /:collection/:path/
+  presentations:
+    output: true
+    permalink: /:collection/:path/
+  projects:
+    output: true
+    permalink: /:collection/:path/
+
+# Defaults
+defaults:
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      classes: wide
+      author_profile: true
+  # _teaching
+  - scope:
+      path: ""
+      type: teaching
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+  # _publications
+  - scope:
+      path: ""
+      type: publications
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+  # _presentations
+  - scope:
+      path: ""
+      type: presentations
+    values:
+      layout: single
+      author_profile: true
+      share: true
+  # _projects
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
 
 # Sass/SCSS
 sass:
@@ -226,6 +293,7 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Plugins (previously gems:)
 plugins:
+  - jekyll-remote-theme
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
